@@ -6,8 +6,8 @@ inputs:
     description: "Timeout in minutes for execution"
     required: false
     default: "5"
-  anthropic_api_key:
-    description: "Anthropic API key"
+  ollama_api_key:
+    description: "Ollama API key"
     required: true
   github_token:
     description: "GitHub token with repo and issues permissions"
@@ -83,5 +83,5 @@ runs:
         allowed_tools: "Bash(gh label list),mcp__github__get_issue,mcp__github__get_issue_comments,mcp__github__update_issue,mcp__github__search_issues,mcp__github__list_issues"
         install_github_mcp: "true"
         timeout_minutes: ${{ inputs.timeout_minutes }}
-        anthropic_api_key: ${{ inputs.anthropic_api_key }}
+        ollama_api_key: ${{ inputs.ollama_api_key }}
         github_token: ${{ inputs.github_token }}

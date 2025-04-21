@@ -5,8 +5,8 @@ inputs:
   github_token:
     description: "GitHub token with repo and issues permissions"
     required: true
-  anthropic_api_key:
-    description: "Anthropic API key"
+  ollama_api_key:
+    description: "Ollama API key"
     required: true
   prompt:
     description: "The prompt to send to Claude Code"
@@ -38,7 +38,7 @@ runs:
   steps:
     - name: Install Claude Code
       shell: bash
-      run: npm install -g @anthropic-ai/claude-code
+      run: npm install -g @ollama/ollama-code
 
     - name: Install GitHub MCP Server
       if: inputs.install_github_mcp == 'true'
@@ -132,5 +132,5 @@ runs:
           echo "Complete output saved to output.json, final response saved to ${{ inputs.output_file }}"
         fi
       env:
-        ANTHROPIC_API_KEY: ${{ inputs.anthropic_api_key }}
+        OLLAMA_API_KEY: ${{ inputs.ollama_api_key }}
         GITHUB_TOKEN: ${{ inputs.github_token }}
